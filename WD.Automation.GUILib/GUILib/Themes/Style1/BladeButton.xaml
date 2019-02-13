@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:GUILib="clr-namespace:GUILib">
+    <ControlTemplate x:Key="BladeButtonTemplate" TargetType="{x:Type GUILib:BladeButton}">
+        <Grid x:Name="Grid" Width="160" Height="120">
+            <Image Source="{Binding Image, RelativeSource={RelativeSource TemplatedParent}}" Stretch="None" VerticalAlignment="Bottom" Margin="0,0,0,24"/>
+            <!--<Image Name="Blade1_Selected" Source="Resources/Images/status_checkoff.png" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,8,0,0"/>-->
+            <Ellipse Name="Blade1State" HorizontalAlignment="Left" Height="10" Width="10" VerticalAlignment="Top" Margin="25,16,0,0" Fill="{TemplateBinding StatusColor}"/>
+            <Image Source="{Binding TeachImage, RelativeSource={RelativeSource TemplatedParent}}" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,30,0,0"/>
+            <Image Source="{Binding ConnectImage, RelativeSource={RelativeSource TemplatedParent}}" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="25,0,0,10"/>
+            <TextBlock Text="{TemplateBinding BladeName}" Foreground="#4E546C" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,8"/>
+
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+            </Trigger>
+            <Trigger Property="IsPressed" Value="true">
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    <Style TargetType="{x:Type GUILib:BladeButton}" BasedOn="{x:Null}">
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="BorderThickness" Value="3"/>
+        <!--<Setter Property="Image" Value="/GUILib;component/Themes/Image/device_bladeoff.png"/>-->
+        <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
+        <!--<Setter Property="Background" Value="{DynamicResource ButtonBackgroundBrush}" />-->
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}" />
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Template" Value="{StaticResource BladeButtonTemplate}" />
+    </Style>
+</ResourceDictionary>
